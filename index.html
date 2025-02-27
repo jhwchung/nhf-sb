@@ -3,79 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Softball Info</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f2f2f2;
-      color: #333;
-      margin: 0;
-      padding: 0;
-    }
-
-    header {
-      background: #0066cc;
-      color: #fff;
-      padding: 20px;
-      text-align: center;
-    }
-
-    h1, h2 {
-      margin: 0.5em 0;
-    }
-
-    section {
-      margin: 20px auto;
-      padding: 20px;
-      max-width: 800px;
-      background: #fff;
-      border-radius: 5px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 10px;
-    }
-
-    th, td {
-      padding: 10px;
-      text-align: left;
-      border-bottom: 1px solid #ddd;
-    }
-
-    th {
-      background-color: #f8f8f8;
-    }
-
-    @media (max-width: 600px) {
-      table, thead, tbody, th, td, tr { 
-        display: block; 
-      }
-      th {
-        background: #0066cc;
-        color: #fff;
-      }
-      td {
-        border: none;
-        position: relative;
-        padding-left: 50%;
-      }
-      td::before {
-        position: absolute;
-        top: 10px;
-        left: 10px;
-        white-space: nowrap;
-      }
-      /* You could add content for each td::before based on data attributes if needed */
-    }
-  </style>
+  <title>Softball Schedule & Scores</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
     <h1>Softball Schedule & Scores</h1>
+    <p>Stay updated with the latest game details and results.</p>
   </header>
+  
   <section id="schedule-section">
     <h2>Upcoming Games</h2>
     <table>
@@ -92,6 +28,7 @@
       </tbody>
     </table>
   </section>
+  
   <section id="scores-section">
     <h2>Recent Scores</h2>
     <table>
@@ -107,6 +44,7 @@
       </tbody>
     </table>
   </section>
+  
   <script>
     // Data arrays for schedule and scores. Edit these to update your page.
     const scheduleData = [
@@ -125,7 +63,6 @@
       tbody.innerHTML = ""; // Clear any existing rows
       dataArray.forEach(item => {
         const row = document.createElement("tr");
-        // For each property in the item object, create a cell
         Object.values(item).forEach(text => {
           const cell = document.createElement("td");
           cell.textContent = text;

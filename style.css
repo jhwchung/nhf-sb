@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
+
+/* Reset defaults */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: #f7f7f7;
+  color: #333;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+/* Header styles */
+header {
+  background: linear-gradient(135deg, #0066cc, #00aaff);
+  color: #fff;
+  padding: 40px 20px;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+header h1 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+/* Section styles */
+section {
+  background: #fff;
+  padding: 20px;
+  margin-bottom: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+section h2 {
+  margin-bottom: 15px;
+  color: #0066cc;
+}
+
+/* Table styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f0f0f0;
+}
+
+tr:hover {
+  background-color: #f9f9f9;
+  transition: background-color 0.3s ease;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 600px) {
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+  th {
+    background: #0066cc;
+    color: #fff;
+    text-align: center;
+  }
+  tr {
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  td {
+    border: none;
+    position: relative;
+    padding-left: 50%;
+    text-align: right;
+  }
+  td::before {
+    position: absolute;
+    top: 12px;
+    left: 15px;
+    width: 45%;
+    white-space: nowrap;
+    font-weight: bold;
+    text-align: left;
+  }
+  /* Custom labels for each cell */
+  td:nth-of-type(1)::before { content: "Date"; }
+  td:nth-of-type(2)::before { content: "Opponent"; }
+  td:nth-of-type(3)::before { content: "Location/Score"; }
+  td:nth-of-type(4)::before { content: "Time"; }
+}
