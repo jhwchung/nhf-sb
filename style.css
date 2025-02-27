@@ -67,13 +67,14 @@ tr:hover {
 }
 
 /* Google Maps Fields Grid */
+/* Google Maps Fields Grid */
 #fields-section {
     margin-bottom: 30px;
   }
   
   .fields-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: 1fr 1fr; /* Two columns for side-by-side layout */
     gap: 20px;
   }
   
