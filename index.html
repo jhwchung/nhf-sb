@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Softball Info</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: #0066cc;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1, h2 {
+      margin: 0.5em 0;
+    }
+
+    section {
+      margin: 20px auto;
+      padding: 20px;
+      max-width: 800px;
+      background: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #f8f8f8;
+    }
+
+    @media (max-width: 600px) {
+      table, thead, tbody, th, td, tr { 
+        display: block; 
+      }
+      th {
+        background: #0066cc;
+        color: #fff;
+      }
+      td {
+        border: none;
+        position: relative;
+        padding-left: 50%;
+      }
+      td::before {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        white-space: nowrap;
+      }
+      /* You could add content for each td::before based on data attributes if needed */
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Softball Schedule & Scores</h1>
+  </header>
+  <section id="schedule-section">
+    <h2>Upcoming Games</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Opponent</th>
+          <th>Location</th>
+          <th>Time</th>
+        </tr>
+      </thead>
+      <tbody id="schedule-body">
+        <!-- Schedule rows will be injected here -->
+      </tbody>
+    </table>
+  </section>
+  <section id="scores-section">
+    <h2>Recent Scores</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Opponent</th>
+          <th>Score</th>
+        </tr>
+      </thead>
+      <tbody id="scores-body">
+        <!-- Score rows will be injected here -->
+      </tbody>
+    </table>
+  </section>
+  <script>
+    // Data arrays for schedule and scores. Edit these to update your page.
+    const scheduleData = [
+      { date: "2025-03-01", opponent: "Team A", location: "Home", time: "3:00 PM" },
+      { date: "2025-03-05", opponent: "Team B", location: "Away", time: "5:00 PM" }
+    ];
+
+    const scoresData = [
+      { date: "2025-02-25", opponent: "Team C", score: "6 - 4" },
+      { date: "2025-02-20", opponent: "Team D", score: "3 - 5" }
+    ];
+
+    // Function to populate table rows dynamically
+    function populateTable(dataArray, tbodyId) {
+      const tbody = document.getElementById(tbodyId);
+      tbody.innerHTML = ""; // Clear any existing rows
+      dataArray.forEach(item => {
+        const row = document.createElement("tr");
+        // For each property in the item object, create a cell
+        Object.values(item).forEach(text => {
+          const cell = document.createElement("td");
+          cell.textContent = text;
+          row.appendChild(cell);
+        });
+        tbody.appendChild(row);
+      });
+    }
+
+    // Populate both tables on page load
+    populateTable(scheduleData, "schedule-body");
+    populateTable(scoresData, "scores-body");
+  </script>
+</body>
+</html>
